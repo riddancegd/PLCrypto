@@ -34,7 +34,7 @@ import com.example.pleasycrypto.presentation.coin_detail.components.TeamListItem
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun CoinDetailScreen(
-    state : CoinDetailState
+    state: CoinDetailState
 ) {
 
     Box(
@@ -42,9 +42,9 @@ fun CoinDetailScreen(
         modifier = Modifier
             .fillMaxSize()
             .background(Color.Black),
-            //.padding(vertical = 50.dp),
+        //.padding(vertical = 50.dp),
 
-        ) {
+    ) {
 
         Log.d("TAGS", state.coin?.name ?: "Nothing")
 
@@ -100,8 +100,7 @@ fun CoinDetailScreen(
 
 
                     FlowRow(
-                        modifier = Modifier
-                            .fillMaxWidth(),
+                        modifier = Modifier.fillMaxWidth(),
                         horizontalArrangement = Arrangement.spacedBy(8.dp),
                         verticalArrangement = Arrangement.spacedBy(8.dp)
                     ) {
@@ -124,8 +123,7 @@ fun CoinDetailScreen(
 
                         TeamListItem(teamMember)
                         HorizontalDivider(
-                            modifier = Modifier.padding(vertical = 6.dp),
-                            color = Color.DarkGray
+                            modifier = Modifier.padding(vertical = 6.dp), color = Color.DarkGray
                         )
 
                     }
@@ -137,7 +135,6 @@ fun CoinDetailScreen(
             }
 
         }
-
 
         if (state.error.isNotBlank()) {
 
@@ -155,13 +152,11 @@ fun CoinDetailScreen(
 
         if (state.isLoading) {
             CircularProgressIndicator(
-                modifier = Modifier
-                    .size(30.dp)
+                modifier = Modifier.size(30.dp)
             )
         }
     }
 }
-
 
 
 @Preview
@@ -169,35 +164,26 @@ fun CoinDetailScreen(
 private fun CoinDetailScreenPreview() {
     CoinDetailScreen(
         CoinDetailState(
-            isLoading = false,
-            coin = CoinDetail(
+            isLoading = false, coin = CoinDetail(
                 coinId = "1",
                 name = "Bitcoin",
-                description = "Best coin, the COAT. It is the first decentralized digital currency, as the" +
-                        "system works without a central bank or single administrator",
+                description = "Best coin, the COAT. It is the first decentralized digital currency, as the" + "system works without a central bank or single administrator",
                 symbol = "BTC",
                 rank = 1,
                 isActive = true,
                 tags = listOf("ola", "kase", "Mining", "Sha256"),
                 team = listOf(
                     TeamMember(
-                        id = "1",
-                        name = "Satoshi Nakamoto",
-                        position = "Founder"
+                        id = "1", name = "Satoshi Nakamoto", position = "Founder"
                     ),
                     TeamMember(
-                        id = "1",
-                        name = "Satoshi Nakamoto",
-                        position = "Founder"
+                        id = "1", name = "Satoshi Nakamoto", position = "Founder"
                     ),
                     TeamMember(
-                        id = "1",
-                        name = "Satoshi Nakamoto",
-                        position = "Founder"
+                        id = "1", name = "Satoshi Nakamoto", position = "Founder"
                     ),
                 )
-            ),
-            error = ""
+            ), error = ""
         )
     )
 }

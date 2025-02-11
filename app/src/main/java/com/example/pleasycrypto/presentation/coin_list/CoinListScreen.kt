@@ -76,7 +76,7 @@ fun CoinListScreen(
 
 
 
-@Preview
+@Preview(showSystemUi = true)
 @Composable
 private fun CoinListScreenPreview() {
     CoinListScreen(

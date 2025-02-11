@@ -21,4 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "PL Easy Crypto"
 include(":app")
- 
+include(":crypto:presentation")

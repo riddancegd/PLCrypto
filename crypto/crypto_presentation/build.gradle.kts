@@ -1,24 +1,20 @@
 plugins {
-    alias(libs.plugins.android.application)
+    alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.dagger.hilt)
-    alias(libs.plugins.kotlin.serialization)
     id("kotlin-kapt")
 }
 
 android {
-    namespace = "com.example.pleasycrypto"
+    namespace = "com.example.presentation"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.pleasycrypto"
         minSdk = 24
-        targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
@@ -42,34 +38,11 @@ android {
     }
 }
 
-kapt {
-    correctErrorTypes = true
-}
-
 dependencies {
 
-    //Project Modules. NOTE: INCLUDE ALL OTHER MODULES IN APP MODULE
-    implementation(project(":crypto:crypto_presentation"))
+    //Local Modules
     implementation(project(":crypto:crypto_domain"))
-    implementation(project(":crypto:crypto_data"))
     implementation(project(":core"))
-
-    //AndroidX
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.lifecycle.runtime.ktx)
-    implementation(libs.androidx.navigation.runtime.ktx)
-
-    //Retrofit & Gson
-    implementation(libs.retrofit)
-    implementation(libs.converter.gson)
-    implementation (libs.converter.moshi)
-
-    //Hilt
-    kapt(libs.hilt.compiler)
-    implementation(libs.hilt.android)
-
-    //Hilt Compose
-    implementation (libs.androidx.hilt.navigation.compose)
 
     //Compose
     implementation(libs.androidx.activity.compose)
@@ -80,15 +53,17 @@ dependencies {
     implementation(libs.androidx.material3)
     implementation(libs.navigation.compose)
 
-    //Serialization
-    implementation(libs.kotlinx.serialization.json)
+    debugImplementation(libs.androidx.ui.tooling)
 
-    //Testing
+
+    //Hilt
+    kapt(libs.hilt.compiler)
+    implementation(libs.hilt.android)
+
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.material)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-    androidTestImplementation(platform(libs.androidx.compose.bom))
-    androidTestImplementation(libs.androidx.ui.test.junit4)
-    debugImplementation(libs.androidx.ui.tooling)
-    debugImplementation(libs.androidx.ui.test.manifest)
 }

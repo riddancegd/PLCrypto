@@ -21,4 +21,7 @@ dependencyResolutionManagement {
 
 rootProject.name = "PL Easy Crypto"
 include(":app")
-include(":crypto:presentation")
+include(":crypto:crypto_presentation")
+include(":crypto:crypto_domain")
+include(":crypto:crypto_data")
+include(":core")

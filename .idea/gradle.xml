@@ -11,8 +11,11 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/core" />
             <option value="$PROJECT_DIR$/crypto" />
-            <option value="$PROJECT_DIR$/crypto/presentation" />
+            <option value="$PROJECT_DIR$/crypto/crypto_data" />
+            <option value="$PROJECT_DIR$/crypto/crypto_domain" />
+            <option value="$PROJECT_DIR$/crypto/crypto_presentation" />
           </set>
         </option>
         <option name="resolveExternalAnnotations" value="false" />
